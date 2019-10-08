@@ -1,6 +1,5 @@
 package cse360assign2;
 
-
 /**
 * This program is an addition/subtraction machine, capable of
 * executing addition/subtraction instructions on a running total
@@ -8,18 +7,18 @@ package cse360assign2;
 * to start from scratch.
 * @author	Jacob Farabee, 1214326749
 */
-
 public class AddingMachine {
 
 	private int total;
-	
+	private String history;
 	
 	/**
 	 * The AddingMachine class only exists to instantiate the
-	 * total.
+	 * total & history.
 	 */
 	public AddingMachine () {
 		total = 0;  // not needed - included for clarity
+		history = "" + total;
 	}
 	
 	/**
@@ -28,7 +27,7 @@ public class AddingMachine {
 	* @return	Total value on calculator.
 	*/
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/**
@@ -38,7 +37,8 @@ public class AddingMachine {
 	* @param   int	The value to be added.
 	*/
 	public void add (int value) {
-		
+		total += value;
+		history += " + " + value;
 	}
 	
 	/**
@@ -48,7 +48,8 @@ public class AddingMachine {
 	* @param   int 	The value to be subtracted.
 	*/
 	public void subtract (int value) {
-		
+		total -= value;
+		history += " - " + value;
 	}
 		
 		
@@ -59,7 +60,7 @@ public class AddingMachine {
 	* @return	The history of calculations.
 	*/
 	public String toString () {
-		return "";
+		return history;
 	}
 
 
@@ -68,6 +69,7 @@ public class AddingMachine {
 	* total to 0. Does not return anything.
 	*/
 	public void clear() {
-	
+		total = 0;
+		history = "" + total;
 	}
 }
